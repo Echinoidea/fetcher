@@ -1,4 +1,4 @@
-use sysinfo::{Cpu, System};
+use sysinfo::System;
 
 pub struct CpuInfo<'a> {
     pub brand: &'a str,
@@ -8,6 +8,7 @@ pub struct CpuInfo<'a> {
 
 impl<'a> CpuInfo<'a> {
     pub fn new(system: &'a mut System, cpu_index: usize) -> CpuInfo<'a> {
+        // CPU usage is calculated by diff. Needs to sleep for an instance to calculate.
         std::thread::sleep(sysinfo::MINIMUM_CPU_UPDATE_INTERVAL);
         system.refresh_cpu_all();
 
