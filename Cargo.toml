@@ -5,3 +5,4 @@ edition = "2021"
 
 [dependencies]
 sysinfo = "0.35.0"
+termcolor = "1.4.1"
